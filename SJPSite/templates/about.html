@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class='container mt-4'>
+    <h1>About</h1>
+    <hr class="my-4">
+</div>
+<div class='container'>
+    <div class='row'>
+        <div class='col-lg-5'>
+            <p>
+                A serious problem in our society is the unequal education of lower class students.
+                Specifically, students in low income neighborhoods are massively underrepresented in STEM fields today.
+            </p>
+            <p>    
+                There are numerous amounts of reason for this, often times schools in these areas receive less funding,
+                computers are expensive to afford for some families, and many others.
+                With no money, schools cannot afford up-to-date labs, computers, and technology necessary for stem teachings.
+            </p>
+            <p>    
+                However, in recent years, colleges and the government have been pushing to reach out to these groups and provide programs and resources.
+                One problem is that often times students in these situations are not aware of the support they can receive.
+                The purpose of this website is to help aliviate this problem.
+            </p>
+        </div>
+        <div class='col-lg-7'>
+            <canvas id='chart'></canvas>
+            <script src='{% static 'js/Chart.bundle.min.js' %}'></script>
+            <script>
+                var ctx = document.getElementById('chart');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            'High Minority, Urban', 'Low Minority, Urban', 'High Minority, Suburban', 'Low Minority, Suburban',
+                        ],
+                        datasets: [{
+                            label: 'Low Income',
+                            data: [6, 10, 7, 8],
+                            backgroundColor: 'rgb(0, 123, 255)',
+                        },
+                        {
+                            label: 'High Income',
+                            data: [11, 17, 11, 16],
+                            backgroundColor: 'rgb(125, 125, 125)',
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: 'Six Year STEM Course Completion Rate Percentage'
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    max: 20,
+                                    autoSkip: false,
+                                    callback: function(value, index, values) {
+                                        return value + '%';
+                                    }           
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col'>
+            <hr>
+            <p>Data from <a href='https://nscresearchcenter.org/hsbenchmarks2015/'>https://nscresearchcenter.org/hsbenchmarks2015/</a></p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
