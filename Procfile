@@ -1,0 +1,1 @@
+web: gunicorn SJPSite.wsgi --log-file -
