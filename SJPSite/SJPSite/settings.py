@@ -140,4 +140,4 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
