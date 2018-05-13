@@ -1,1 +1,1 @@
-web: gunicorn SJPSite:application --log-file -
+web: gunicorn mystemoptions.wsgi --log-file -
