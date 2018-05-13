@@ -1,5 +1,12 @@
 div.jumbotron-home {
-    background: url('../images/students-studying.jpg') no-repeat center center fixed;
+    background: url('../img/students-studying.jpg') no-repeat center center fixed;
+}
+
+div.jumbotron-program-finder {
+    background: url('../img/receiving-scholarship.jpg') no-repeat center center fixed;
+}
+
+div.jumbotron-background-img {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

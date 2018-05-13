@@ -1,41 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class='jumbotron jumbotron-fluid jumbotron-home'>
+<div class='jumbotron jumbotron-fluid jumbotron-home jumbotron-background-img'>
     <div class='container'>
-        <h1 class='display-4 text-light'>Welcome to My Options!</h1>
+        <h1 class='display-3 text-light mb-3'>Welcome to My Options!</h1>
         <p class='lead text-light'>The one-stop place for finding all STEM education programs for disadvantaged and underprivledged students available from the government and universities of America</p>
         <hr class='my-4' style='background-color:white;'>
         <p class='text-light'>Often times knowing that no support exists is one of the first problems</p>
-        <a class='btn btn-primary btn-lg' href='/program_finder/' role='button'><span class='mr-2 oi oi-map-marker' aria-hidden='true'></span>Find a Program</a>
-        <a class='btn btn-secondary btn-lg' href='/about/' role='button'>Learn more</a>
+        <a class='btn btn-primary btn-lg' href='{% url 'program-finder' %}' role='button'><span class='mr-2 oi oi-map-marker' aria-hidden='true'></span>Find a Program</a>
+        <a class='btn btn-secondary btn-lg' href='{% url 'about' %}' role='button'>Learn more</a>
     </div>
 </div>
 <div class='container mb-5'>
-    <h2>What Kind of Options are Available?</h2>
-    <h3>Background</h3>
-    <hr class='my-4'>
-    <p class='lead'>
-        In recent years, colleges and the government alike have created programs and harnesses to help guide underprivledged students into esteemed academic schools and STEM learning environments.
-    </p>
-    <p class='lead'>
-        Finding the right one for you can be daunting, and we are here to make it less complicated.
-    </p>
-    <h3>Options</h3>
-    <p class='lead'>
-        Programs include <a href='https://bigfuture.collegeboard.org/scholarship-search'><span class='mr-1 oi oi-magnifying-glass' aria-hidden='true'></span>scholarships</a>, college initiatives to bring in low-income students, and others not tied to school, like <a href='https://www.firstinspires.org/' target='_blank '>FIRST FRC</a>
-    </p>
     <div class='row'>
         <div class='col'>
-
-        </div>
-        <div class='col'>
-            
+            <h2>What Kind of Options are Available?</h2>
+            <hr class='my-4'>
+            <h4>Background</h4>
+            <p class='lead'>
+                In recent years, colleges and the government alike have created programs and harnesses to help guide underprivledged students into esteemed academic schools and STEM learning environments.
+            </p>
+            <p class='lead'>
+                Finding the right one for you can be daunting, and we are here to make it less complicated.
+            </p>
+            <h4>Options</h4>
+            <p class='lead'>
+                Programs include <a href='{% url 'scholarship-finder' %}'></span>scholarships</a>, college initiatives to bring in low-income students, and others not tied to school, like <a href='https://www.firstinspires.org/' target='_blank '>FIRST FRC</a>
+            </p>
+            <div class='row'>
+                <div class='col'>
+        
+                </div>
+                <div class='col'>
+                    
+                </div>
+            </div>
+            <h2 class='mt-5'>Why is STEM Important?</h2>
+            <hr class='my-4'>
+            <p class='lead'>
+                There is no doubt that STEM jobs are the future.
+                If we do not do something now about inequal representation in it for low-income students and minorities, it will create a massive gap in society later on.
+            </p>
         </div>
     </div>
-    <h2 class='mt-5'>Why is STEM Important?</h2>
-    <hr class='my-4'>
-    <p class='lead'>
-        There is no doubt that STEM jobs are the future. If we do not do something now about inequal representation in it for low-income students and minorities, it will create a massive gap in society.
-    </p>
 </div>
 {% endblock content %}

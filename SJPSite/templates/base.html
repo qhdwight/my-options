@@ -4,27 +4,42 @@
     <head>
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+        <link rel='icon' href='{% static 'img/favicon.ico' %}'>
         <link rel='stylesheet' href='{% static 'css/open-iconic-bootstrap.min.css' %}'>
         <link rel='stylesheet' href='{% static 'css/bootstrap.min.css' %}'> 
         <link rel='stylesheet' href='{% static 'css/site.css' %}'>
         <title>Home | My Options</title>
     </head>
     <body>
-        <nav class='navbar navbar-expand-lg sticky-top navbar-light bg-light'>
-            <a class='navbar-brand' href='/'>My Options</a>
+        <nav class='navbar navbar-expand-lg sticky-top navbar-dark bg-primary'>
+            <a class='navbar-brand' href='{% url 'root' %}'>My Options</a>
             <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
                 <span class='navbar-toggler-icon'></span>
             </button>
             <div class='collapse navbar-collapse' id='navbarSupportedContent'>
                 <ul class='navbar-nav mr-auto'>
-                <li class='nav-item active'>
-                    <a class='nav-link' href='/home/'><span class='mr-2 oi oi-home' aria-hidden='true'></span>Home<span class='sr-only'>(current)</span></a>
+                <li class='nav-item{% if currentNav == 'home' %} active{% endif %}'>
+                    <a class='nav-link' href='{% url 'home' %}'><span class='mr-2 oi oi-home' aria-hidden='true'></span>Home<span class='sr-only'>(current)</span></a>
                 </li>
-                <li class='nav-item'>
-                    <a class='nav-link' href='/program_finder/'><span class='mr-2 oi oi-map-marker' aria-hidden='true'></span>Program Finder</a>
+                <li class='nav-item dropdown{% if currentNav == 'program-finder' %} active{% endif %}'>
+                    <a class='nav-link dropdown-toggle' href='{% url 'program-finder' %}' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                        <span class='mr-2 oi oi-map-marker' aria-hidden='true'></span>Program Finder
+                    </a>
+                    <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                        <a class='dropdown-item' href='{% url 'program-finder' %}'>General Program Finder</a>
+                        <div class="dropdown-divider"></div>
+                        <a class='dropdown-item' href='{% url 'scholarship-finder' %}'>Scholarship Finder</a>
+                    </div>
                 </li>
-                <li class='nav-item'>
-                    <a class='nav-link' href='/about/'><span class='mr-2 oi oi-globe' aria-hidden='true'></span>About</a>
+                <li class='nav-item{% if currentNav == 'resources' %} active{% endif %}'>
+                    <a class='nav-link' href='{% url 'resources' %}'>
+                        <span class='mr-2 oi oi-book' aria-hidden='true'></span>Resources
+                    </a>
+                </li>
+                <li class='nav-item{% if currentNav == 'about' %} active{% endif %}'>
+                    <a class='nav-link' href='{% url 'about' %}'>
+                        <span class='mr-2 oi oi-globe' aria-hidden='true'></span>About
+                    </a>
                 </li>
                 </form>
             </div>

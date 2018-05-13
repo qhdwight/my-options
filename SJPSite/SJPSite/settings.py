@@ -25,12 +25,15 @@ SECRET_KEY = '(8%6)_u95d(ujc7pbp=f4!zlula$yud#afqc=-kr5ju=y7nvf$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost'
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'ProgramFinder',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -1,6 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class='jumbotron jumbotron-fluid jumbotron-program-finder jumbotron-background-img'>
+    <div class='container'>
+        <h1 class='display-4 text-light mt-4'>
+            Find a Program Right for You
+        </h1>
+        <hr class='my-4' style='background-color:white;'>
+        <a class='btn btn-primary btn-lg mb-4' href='#' role='button'><span class='mr-2 oi oi-media-play' aria-hidden='true'></span>Get Started</a>
+    </div>
+</div>
 <div class='container'>
-    
+    <div class='row'>
+        <div class='col'>
+            <h1>
+                Scholarships
+            </h1>
+            <hr class='my-4'>
+            <p class='lead'>
+                Scholarships are programs that provide financial support for underprivledged students.
+                Almost all of the time, an application is required.
+                This involves some basic personal information and usually an essay.
+            </p>
+            <p class='lead'>
+                Do not be afraid! Writing a essay is much better than giving up and not received a potentially amazing education.
+            </p>
+            <a class='btn btn-primary btn-lg mb-4' href='{% url 'scholarship-finder' %}' role='button'><span class='mr-2 oi oi-magnifying-glass' aria-hidden='true'></span>Find Scholarship</a>
+        </div>
+    </div>
 </div>
 {% endblock content %}
