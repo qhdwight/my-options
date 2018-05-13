@@ -10,10 +10,12 @@ name = "pypi"
 gunicorn = "*"
 django-heroku = "*"
 whitenoise = "*"
+python-decouple = "*"
 
 
 [dev-packages]
 
+pylint = "*"
 
 
 [requires]
