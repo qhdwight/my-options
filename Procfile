@@ -1,1 +1,1 @@
-web: gunicorn SJPSite.wsgi --log-file -
+web: gunicorn my-stem-options.wsgi --log-file -
