@@ -7,6 +7,59 @@
                 Scholarship Finder
             </h1>
             <hr class='my-4'>
+            {% load widget_tweaks %}
+            <form method='post'>
+                {% csrf_token %}
+                {% for hidden_field in searchForm.hidden_fields %}
+                    {{ hidden_field }}
+                {% endfor %}
+                {% if searchForm.non_field_errors %}
+                    <div class='alert alert-danger' role='alert'>
+                        {% for error in searchForm.non_field_errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% for field in searchForm.visible_fields %}
+                    <div class='form-group'>
+                        {{ field.label_tag }}
+                        {% if searchForm.is_bound %}
+                            {% if field.errors %}
+                                {% render_field field class='form-control form-control-sm is-invalid' %}
+                                {% for error in field.errors %}
+                                    <div class='invalid-feedback'>
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                {% render_field field class='form-control form-control-sm is-valid' %}
+                            {% endif %}
+                        {% else %}
+                            {% render_field field class='form-control form-control-sm' %}
+                        {% endif %}
+                        {% if field.help_text %}
+                            <small class='form-text text-muted'>{{ field.help_text }}</small>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <button type='submit' class='btn btn-primary btn-block'>Search<span class='ml-2 oi oi-magnifying-glass' aria-hidden='true'></span></button>
+            </form>
+            <hr class='my-4'>
+            {% for scholarship in searchResults %}
+            <div class='card'>
+                <h5 class='card-header'>
+                    {{ scholarship.name }}
+                </h5>
+                <div class='card-body'>
+                    <p class='card-text'>Amount: ${{ scholarship.amount }}, Upper Amount: ${{ scholarship.upperAmount }}</p>
+                    <p class='card-text'>Deadline Month: {{ scholarship.deadlineMonth }}, Deadline Day: {{ scholarship.deadlineDay }}</p>
+                    <p class='card-text'>{{ scholarship.description }}</p>
+                    <a href='{{ scholarship.url }}' target='_blank' class='btn btn-outline-primary'>
+                        Learn More<span class='ml-2 oi oi-share' aria-hidden='true'></span>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

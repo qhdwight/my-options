@@ -11,11 +11,13 @@ gunicorn = "*"
 django-heroku = "*"
 whitenoise = "*"
 python-decouple = "*"
+django-widget-tweaks = "*"
 
 
 [dev-packages]
 
 pylint = "*"
+pylint-django = "*"
 
 
 [requires]

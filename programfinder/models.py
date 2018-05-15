@@ -8,3 +8,4 @@ class Scholarship(models.Model):
     deadlineDay = models.PositiveSmallIntegerField()
     amount = models.PositiveIntegerField()
     upperAmount = models.PositiveIntegerField(null=True, blank=True)
+    

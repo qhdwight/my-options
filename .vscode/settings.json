@@ -1,3 +1,8 @@
 {
     "python.pythonPath": "C:\\Users\\qhdwi\\.virtualenvs\\MyOptions-18Ad0VQi\\Scripts\\python.exe",
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django",
+        "--disable=C0111",
+        "--disable=C0301"
+   ],
 }

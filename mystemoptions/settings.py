@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [
