@@ -26,11 +26,12 @@ def scholarship_finder(request):
         if search_form.is_valid():
             search_query = Scholarship.objects.all()
             if search_form.cleaned_data['lower_amount']:
-                search_query.filter(amount__gte=search_form.cleaned_data['lower_amount'])
+                search_query = search_query.filter(amount__gte=search_form.cleaned_data['lower_amount'])
             if search_form.cleaned_data['upper_amount']:
-                search_query.filter(amount__lte=search_form.cleaned_data['upper_amount'])
+                search_query = search_query.filter(amount__lte=search_form.cleaned_data['upper_amount'])
             if search_form.cleaned_data['deadline_month']:
-                search_query.filter(deadlineDay=search_form.cleaned_data['deadline_month'])
+                print(search_form.cleaned_data['deadline_month'])
+                search_query = search_query.filter(deadlineMonth=(search_form.cleaned_data['deadline_month']))
             template_data['searchForm'] = search_form
             template_data['searchResults'] = search_query
             return render(request, 'scholarship_finder.html', template_data)
