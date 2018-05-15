@@ -7,4 +7,4 @@ class Scholarship(models.Model):
     deadlineMonth = models.PositiveSmallIntegerField()
     deadlineDay = models.PositiveSmallIntegerField()
     amount = models.PositiveIntegerField()
-    upperAmount = models.PositiveIntegerField(null=True)
+    upperAmount = models.PositiveIntegerField(null=True, blank=True)
